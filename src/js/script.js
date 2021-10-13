@@ -1,3 +1,4 @@
+
 {
   'use strict';
 
@@ -19,34 +20,15 @@
 
     render: function(){
       const thisApp = this;
-      //console.log('menuBook:', templates);
 
+      const bookContainer = document.querySelector(select.booksPanel.bookList);
+      for(let book of dataSource.books){
 
-      // for(let book of dataSource.books) {
-      //   thisApp.generatedDOM = '';
-      //   const genereatedHTML = templates.menuBook(thisApp);
-      //   thisApp.generatedDOM = utils.createDOMFromHTML(genereatedHTML);
+        const generatedHTML = templates.menuBook(book);
+        const dom = utils.createDOMFromHTML(generatedHTML);
 
-
-      // }
-
-      // for( let i = 0; i < dataSourceLength; i++ ){
-      //   const genereatedHTML = templates.menuBook(thisApp);
-      //   thisApp.select.booksPanel.bookList = utils.createDOMFromHTML(genereatedHTML);
-      //   const bookContainer = document.querySelector(select.booksPanel.bookList);
-      //   bookContainer.appendChild(thisApp.booksPanel.bookList);
-      //   console.log('Loop iteration: ' + i);
-      // }
-
-
-
-      for(let book in thisApp.dataSource.books){
-        const generatedHTML = templates.menuBook(thisApp);
-        book = utils.createDOMFromHTML(generatedHTML);
-        const bookContainer = document.querySelector(select.booksPanel.bookList);
-        bookContainer.appendChild(book);
+        bookContainer.appendChild(dom);
       }
-      // console.log('test', dataSourceLength);
     },
   };
   app.render();
