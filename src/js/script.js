@@ -23,6 +23,8 @@
   };
   var favouriteBooks = [];
 
+  var filters = [];
+
   const app = {
 
     render: function(){
